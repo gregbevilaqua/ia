@@ -16,10 +16,10 @@ class ProfundidadeLimitada:
 
     def definirProblema(self, definido, listdic):
         while definido == False:
-            origem = (str(input('Cidade Origem:')).title())
+            origem = (str(input('Origem:')).title())
             if origem in listdic and origem.isalpha():
                 x = listdic.index(origem)
-                destino = (str(input('Cidade Destino:')).title())
+                destino = (str(input('Destino:')).title())
                 if destino in listdic and destino.isalpha():
                     y = listdic.index(destino)
                     lim = (int(input('Limite:')))

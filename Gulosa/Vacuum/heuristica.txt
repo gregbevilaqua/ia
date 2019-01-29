@@ -1,0 +1,9 @@
+
+ESS 3
+DSS 3
+ELS 2
+DSL 2
+DLS 2
+ESL 2
+ELL 1
+DLL 1

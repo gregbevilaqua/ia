@@ -67,7 +67,7 @@ if __name__ == '__main__':
             g.add_aresta(19, 12)
 
             a, b = g.definirProblema(definido, listdic)
-            lista = g.bfs(a, b)
+            lista = g.sucessor(a, b)
             print(lista)
             lista.reverse()
             res = g.caminho(lista)
@@ -124,9 +124,9 @@ if __name__ == '__main__':
             g.add_aresta(18, 17)
             g.add_aresta(19, 0)
             g.add_aresta(19, 12)
-            # t = g.expandir(0,7)
+            #t = g.expandir(0, 7)
             x, y = g.definirProblema(definido, listdic)
-            g.destino(x, y, listdic)
+            g.destino(x, y, dic)
             #g.mostrar()
 
     elif metodo == "Profundidadevisitado":
@@ -179,7 +179,6 @@ if __name__ == '__main__':
             g.add_aresta(19, 12)
             x, y = g.definirProblema(definido, listdic)
             g.destino(x, y, dic)
-            # g.mostrar()
 
     elif metodo == "Profundidadeiterativo":
             g = ProfundidadeIterativo(22)

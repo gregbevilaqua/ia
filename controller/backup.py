@@ -9,10 +9,10 @@ class Largura:
 
     def definirProblema(self, definido, listdic):
         while definido == False:
-            origem = (str(input('Origem:')).title())
+            origem = (str(input('Cidade Origem:')).title())
             if origem in listdic and origem.isalpha():
                 x = listdic.index(origem)
-                destino = (str(input('Destino:')).title())
+                destino = (str(input('Cidade Destino:')).title())
                 if destino in listdic and destino.isalpha():
                     y = listdic.index(destino)
                     return x, y
@@ -27,7 +27,12 @@ class Largura:
                 print(j, end=' ')
             print('')
 
-    def sucessor(self, u, v):
+    def sucessor(self, no):
+        vizinhos = []
+
+        return vizinhos
+
+    def bfs(self, u, v):
         borda = [u]
         node = []
 

@@ -12,10 +12,10 @@ class Profundidade:
 
     def definirProblema(self, definido, listdic):
         while definido == False:
-            origem = (str(input('Cidade Origem:')).title())
+            origem = (str(input('Origem:')).title())
             if origem in listdic and origem.isalpha():
                 x = listdic.index(origem)
-                destino = (str(input('Cidade Destino:')).title())
+                destino = (str(input('Destino:')).title())
                 if destino in listdic and destino.isalpha():
                     y = listdic.index(destino)
                     return x, y
@@ -30,7 +30,8 @@ class Profundidade:
                 print(j, end=' ')
             print('')
 
-    def expandir(self, x, y):
+    #Expandindo todos os nós até o objetivo (PODENDO HAVER loops)
+    def sucessor(self, x, y):
         self.node.append(x)
         self.cont = 0
         while x != y:
@@ -46,10 +47,18 @@ class Profundidade:
             self.node.append(x)
         return self.node
 
-    def destino(self, x, y, listdic):
-        self.caminho = self.expandir(x, y)
-        for i in self.caminho:
-            for j in listdic:
-                if i == j:
-                    self.node_final.append(listdic[j])
-        print(self.node_final)
+    def destino(self, u, v, dic):
+        self.caminho = self.sucessor(u, v)
+        if u > v:
+            self.caminho.appendleft(v)
+            self.caminho.reverse()
+        else:
+            self.caminho.appendleft(u)
+        if self.caminho[-1] == v:
+            for i in self.caminho:
+                for j in dic:
+                    if i == j:
+                        self.node_final.append(dic[j])
+            print(self.node_final)
+        else:
+            print('Nó Não Alcançado!')

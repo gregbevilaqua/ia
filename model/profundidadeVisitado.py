@@ -31,14 +31,13 @@ class ProfundidadeVisitado:
                 print(j, end=' ')
             print('')
 
-    def expandir(self,a, b):
+    def sucessor(self,a, b):
         aux = []
         self.destino = b
         self.visitados[a] = True
         for i in range(self.numvert):
             if self.grafo[a][i] == 1 and self.visitados[i] == False:
                 aux.append(i)
-            print(aux)
         rnd.shuffle(aux)
         for i in range(len(aux)):
             if aux[i] not in self.borda:
@@ -51,11 +50,11 @@ class ProfundidadeVisitado:
             if a != b:
                 self.node.append(self.removido)
                 # print(self.node)
-                self.expandir(self.removido,self.destino)
+                self.sucessor(self.removido,self.destino)
         return self.node
 
     def destino(self,x,y, dic):
-        self.caminho = self.expandir(x,y)
+        self.caminho = self.sucessor(x,y)
         if x > y:
             self.caminho.appendleft(y)
             self.caminho.reverse()

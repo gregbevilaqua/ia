@@ -1,0 +1,21 @@
+
+Arad Zerind Timisoara Sibiu
+Timisoara Lugoj Arad 
+Sibiu Oradea Arad Rimnicu Fagaras 
+Zerind Oradea Arad
+Oradea Zerind Sibiu 
+Lugoj Mehadia Timisoara 
+Mehadia Lugoj Dobreta
+Dobreta Mehadia Craiova 
+Craiova Dobreta Rimnicu Pitesti
+Pitesti Rimnicu Craiova Bucharest
+Rimnicu Sibiu Pitesti Craiova
+Fagaras Sibiu Bucharest  
+Bucharest Urziceni Giurgiu Pitesti Fagaras
+Giurgiu Bucharest 
+Urziceni Bucharest Hirsova Vaslui
+Hirsova Urziceni Eforie
+Eforie Hirsova 
+Vaslui Urziceni Iasi
+Iasi Vaslui Neamt
+Neamt Iasi
