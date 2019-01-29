@@ -3,9 +3,11 @@ from N1.model.profundidade import Profundidade
 from N1.model.profundidadeVisitado import ProfundidadeVisitado
 from N1.model.profundidadeIterativo import ProfundidadeIterativo
 from N1.model.profundidadeLimitada import ProfundidadeLimitada
+from N1.model.gulosaV import gulosa,sucessor
+from N1.model.aEstrela import sucessorStar, aStar
 
 if __name__ == '__main__':
-    print("\nMétodos configurados: Largura, Profundidade, ProfundidadeVisitado, ProfundidadeIterativo, ProfundidadeLimitada\n")
+    print("\nMétodos configurados: Largura, Profundidade, ProfundidadeVisitado, ProfundidadeIterativo, ProfundidadeLimitada, Gula pela melhor Escolha e A*\n")
     metodo = (str(input('Por qual metodo você quer resolver o problema?:')).title())
 
     dic = {0: 'Ess', 1: 'Dss', 2: 'Els', 3: 'Dls',
@@ -129,6 +131,21 @@ if __name__ == '__main__':
         g.add_aresta(6, 7)
         x, y, l = g.definirProblema(definido, listdic)
         g.destino(x, y, l, dic)
+
+    elif metodo == "Gulosa":
+        mfronteira=sucessor()
+        origem = (str(input('Origem:')).title())
+        destino = (str(input('Destino:')).title())
+        GS = gulosa(origem.upper(),destino.upper())
+        print('Busca Gulosa:', GS)
+
+    elif metodo == "A*":
+        #lerAspirador()
+        sucessorStar()
+        origem = (str(input('Origem:')).title())
+        destino = (str(input('Destino:')).title())
+        aEstrela = aStar(origem.upper(), destino.upper())
+        print('A*:', aEstrela)
 
     else:
         print("Você não selecionou nenhuma opção válida")

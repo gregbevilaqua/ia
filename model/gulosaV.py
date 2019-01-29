@@ -1,24 +1,23 @@
 from collections import deque
-from N1.Gulosa.Romenia.mapa_fronteira import MapaFronteira
-from N1.Gulosa.Romenia.mapa_heuristica import MapaHeuritica
+from Gulosa.Vacuum.mapa_fronteira import MapaFronteira
+from Gulosa.Vacuum.mapa_heuristica import MapaHeuritica
 
-arq = open('cidade_node.txt', 'r')
+arq = open('C:/Users/gregb/PycharmProjects/IA/N1/arquivos/estados.txt', 'r')
 arquivo = arq.read()
 linhaTexto = arquivo.splitlines()
 linhaTexto.pop(0)  # eliminar o espaço
 
-arq_h = open('cidade_heuristica.txt', 'r')
+arq_h = open('C:/Users/gregb/PycharmProjects/IA/N1/arquivos/heuristica.txt', 'r')
 arquivo_h = arq_h.read()
 linhaTexto_h = arquivo_h.splitlines()
 linhaTexto_h.pop(0)  # eliminar o espaço
-linhaTexto_h.pop()
 
 m = MapaFronteira()
 mh = MapaHeuritica()
 
 mfronteira = m.mapa_chaves(linhaTexto)
-mfronteirab = m.mapa_chaves(linhaTexto)
 mheurist = mh.mapa_chaves(linhaTexto_h)
+#mheurist['DLL']=1
 
 lista = []
 node = deque()
@@ -34,6 +33,7 @@ def sucessor():
         for j in range(len(mfronteira[i])):
             if mfronteira[i][j][0] in lista:
                 mfronteira[i][j].insert(1, mheurist[mfronteira[i][j][0]][0])
+
     return mfronteira
 
 def gulosa(v,u):
@@ -54,12 +54,6 @@ def gulosa(v,u):
         else:
             return gulosa(a,b)
 
-
-########## FAZENDO A BUSCA GULOSA PARA A ROMENIA #############
-sucessor()
-GS=gulosa('Arad','Bucharest')
-print('Busca Gulosa:',GS)
-##############################################################
 
 arq.close()
 arq_h.close()

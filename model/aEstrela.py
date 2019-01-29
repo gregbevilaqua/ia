@@ -1,20 +1,21 @@
 from collections import deque
-from N1.A_star.Romenia.mapa_fronteira import MapaFronteira
-from N1.A_star.Romenia.mapa_heuristica import MapaHeuritica
-from N1.A_star.Romenia.mapa_aestrela import MapaEstrela
+from A_star.Romenia.mapa_fronteira import MapaFronteira
+from A_star.Romenia.mapa_heuristica import MapaHeuritica
+from N1.model.mapa_aestrela import MapaEstrela
 
-arq = open('cidade_node.txt', 'r')
+arq=open('C:/Users/gregb/PycharmProjects/IA/N1/arquivos/estados.txt', 'r')
+arq_h = open('C:/Users/gregb/PycharmProjects/IA/N1/arquivos/heuristica.txt', 'r')
+arq_e = open('C:/Users/gregb/PycharmProjects/IA/N1/arquivos/ucs.txt', 'r')
+
 arquivo = arq.read()
 linhaTexto = arquivo.splitlines()
 linhaTexto.pop(0)  # eliminar o espaço
 
-arq_h = open('cidade_heuristica.txt', 'r')
 arquivo_h = arq_h.read()
 linhaTexto_h = arquivo_h.splitlines()
 linhaTexto_h.pop(0)  # eliminar o espaço
 linhaTexto_h.pop()
 
-arq_e = open('cidade_ucs.txt', 'r')
 arquivo_e = arq_e.read()
 linhaTexto_e = arquivo_e.splitlines()
 linhaTexto_e.pop(0)  # eliminar o espaço
@@ -31,7 +32,7 @@ lista = []
 node = deque()
 node_1 = []
 
-def sucessor():
+def sucessorStar():
     for i in mheurist.keys():
         lista.append(i)
     count = 0
@@ -46,7 +47,7 @@ def sucessor():
             if mfronteira[i][j][0] in lista:
                 a = (mestrela[i][j][1]) + (mfronteira[i][j][1])
                 mfronteira[i][j].insert(1,a)
-    print(mfronteira)
+    #print(mfronteira)
     return mfronteira
 
 def aStar(v, u):
@@ -64,10 +65,6 @@ def aStar(v, u):
             return node
         else:
             return aStar(a, b)
-
-sucessor()
-a = aStar('Arad', 'Bucharest')
-print(a)
 
 arq.close()
 arq_h.close()
